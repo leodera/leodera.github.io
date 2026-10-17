@@ -205,7 +205,7 @@
             <!-- Left Column: Story, Loss Metrics & Tab Switcher -->
             <div class="lg:col-span-5 space-y-5">
               <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                Audited 9,994 retail transactions using a Python-to-Google Sheets pipeline and Power BI. Discovered that despite headline sales of $2.30M with a 12.47% net margin, <strong>$156.12K was lost across 1,318 orders</strong> due to excessive discounting.
+                Audited 9,994 retail transactions using a Python-to-Google Sheets pipeline and Power BI. Discovered that despite headline sales of $2.30M with a 12.47% net margin, <strong>$156.12K was lost across 1,318 orders</strong> due to excessive discounting[cite: 9, 10].
               </p>
 
               <!-- Discount Cliff Data Table -->
@@ -251,13 +251,13 @@
               <div>
                 <span class="text-xs font-semibold text-gray-300 block mb-2">Inspect Dashboard Canvas Pages:</span>
                 <div class="flex flex-wrap gap-2">
-                  <button onclick="switchSuperstoreTab('executive_overview.png', this)" class="superstore-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 text-white shadow-md transition-all">
+                  <button onclick="switchSuperstoreTab('https://raw.githubusercontent.com/leodera/Superstore_Commercial_Audit/main/dashboard/executive_overview.png', this)" class="superstore-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 text-white shadow-md transition-all">
                     1. Executive Overview
                   </button>
-                  <button onclick="switchSuperstoreTab('profit_and_loss.png', this)" class="superstore-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-dark-bg border border-dark-border text-gray-300 hover:text-white transition-all">
+                  <button onclick="switchSuperstoreTab('https://raw.githubusercontent.com/leodera/Superstore_Commercial_Audit/main/dashboard/profit_and_loss.png', this)" class="superstore-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-dark-bg border border-dark-border text-gray-300 hover:text-white transition-all">
                     2. Profit &amp; Loss
                   </button>
-                  <button onclick="switchSuperstoreTab('discount_impact.png', this)" class="superstore-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-dark-bg border border-dark-border text-gray-300 hover:text-white transition-all">
+                  <button onclick="switchSuperstoreTab('https://raw.githubusercontent.com/leodera/Superstore_Commercial_Audit/main/dashboard/discount_impact.png', this)" class="superstore-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-dark-bg border border-dark-border text-gray-300 hover:text-white transition-all">
                     3. Discount Impact
                   </button>
                 </div>
@@ -266,8 +266,9 @@
 
             <!-- Right Column: Canvas Display Screen -->
             <div class="lg:col-span-7 bg-dark-bg rounded-xl border border-dark-border p-2 overflow-hidden shadow-2xl relative">
-              <img id="superstoreCanvasDisplay" src="executive_overview.png" alt="Superstore Power BI Dashboard Page" 
-                   onerror="this.src='https://placehold.co/1200x675/111827/9ca3af?text=Add+Screenshots+to+Folder';" 
+              <img id="superstoreCanvasDisplay" 
+                   src="https://raw.githubusercontent.com/leodera/Superstore_Commercial_Audit/main/dashboard/executive_overview.png" 
+                   alt="Superstore Power BI Dashboard Page" 
                    class="w-full h-auto rounded-lg object-contain transition-all duration-300" />
             </div>
           </div>
@@ -285,15 +286,18 @@
             </div>
             
             <div class="flex items-center gap-3">
-              <a href="https://public.tableau.com/views/Retail_Online_17921429781570/ExecutiveInsights?:language=en-GB&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg bg-dark-bg border border-dark-border hover:border-indigo-500 text-indigo-400 transition-all">
-                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> View Fullscreen on Tableau Public
+              <a href="https://github.com/leodera/online-retail-customer-analysis" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg bg-dark-bg border border-dark-border hover:border-gray-500 text-gray-300 hover:text-white transition-all">
+                <i class="fa-brands fa-github text-sm"></i> View Repository
+              </a>
+              <a href="https://public.tableau.com/views/Retail_Online_17921429781570/ExecutiveInsights?:language=en-GB&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition-all shadow-md shadow-indigo-600/30">
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Tableau Fullscreen
               </a>
             </div>
           </div>
 
           <div class="p-6 space-y-4">
             <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
-              Audited retail transaction histories to evaluate RFM customer segmentation, geographic market concentration (the UK generating ~82% of revenue), and customer retention behavior across multiple cohort cycles.
+              Audited transaction histories to evaluate RFM customer segmentation, geographic market concentration (the UK driving ~82% of revenue), and customer retention behavior across multiple cohort cycles[cite: 9].
             </p>
 
             <!-- Embedded Live Tableau Container -->
