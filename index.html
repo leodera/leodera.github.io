@@ -169,7 +169,7 @@
     </div>
   </section>
 
-  <!-- ================= PROJECTS & CASE STUDIES ================= -->
+  <!-- ================= PROJECTS & CASE STUDIES (DYNAMIC FROM JSON) ================= -->
   <section id="projects" class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -177,142 +177,18 @@
         <span class="text-xs uppercase tracking-widest text-brand-400 font-semibold">Featured Work</span>
         <h2 class="text-3xl font-bold text-white mt-1">Data Analysis Projects &amp; Audits</h2>
         <p class="text-gray-400 text-sm mt-2">
-          End-to-end analytics projects covering transactional auditing, root-cause diagnostics, and interactive BI reporting.
+          End-to-end analytics projects covering transactional auditing, spreadsheet cleansing, cohort dynamics, and interactive BI reporting.
         </p>
       </div>
 
-      <div class="space-y-12">
-        
-        <!-- PROJECT 1: SUPERSTORE MULTI-PAGE AUDIT SHOWCASE -->
-        <div class="bg-dark-card border border-dark-border rounded-2xl overflow-hidden hover:border-brand-500/60 transition-all shadow-2xl">
-          <div class="p-6 border-b border-dark-border bg-gradient-to-r from-blue-950/40 via-dark-card to-amber-950/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <div class="flex items-center gap-2">
-                <span class="text-xs font-mono font-medium px-2.5 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800/40">Power BI, Python &amp; Google Sheets</span>
-                <span class="text-xs text-gray-400">• Commercial Performance Audit</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mt-1">Superstore Commercial Audit &amp; Loss Investigation</h3>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <a href="https://github.com/leodera/Superstore_Commercial_Audit" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg bg-dark-bg border border-dark-border hover:border-amber-500 text-amber-400 transition-all">
-                <i class="fa-brands fa-github text-sm"></i> View Repo &amp; Download .PBIX
-              </a>
-            </div>
-          </div>
-
-          <div class="p-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <!-- Left Column: Story, Loss Metrics & Tab Switcher -->
-            <div class="lg:col-span-5 space-y-5">
-              <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                Audited 9,994 retail transactions using a Python-to-Google Sheets pipeline and Power BI. Discovered that despite headline sales of $2.30M with a 12.47% net margin, <strong>$156.12K was lost across 1,318 orders</strong> due to excessive discounting[cite: 9, 10].
-              </p>
-
-              <!-- Discount Cliff Data Table -->
-              <div class="rounded-xl border border-dark-border bg-dark-bg/60 p-3.5 overflow-x-auto">
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">Discount Cliff Margin Breakdown</span>
-                  <span class="text-[10px] text-amber-400 font-medium">Loss Threshold: &gt; 20%</span>
-                </div>
-                <table class="w-full text-left text-xs">
-                  <thead class="text-gray-400 border-b border-dark-border text-[11px]">
-                    <tr>
-                      <th class="pb-1.5">Discount Band</th>
-                      <th class="pb-1.5">Sales</th>
-                      <th class="pb-1.5 text-right">Profit Margin</th>
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y divide-dark-border/40 text-gray-300">
-                    <tr>
-                      <td class="py-1.5">0% (No Discount)</td>
-                      <td class="py-1.5">$1.09M</td>
-                      <td class="py-1.5 text-right text-emerald-400 font-semibold">+29.51%</td>
-                    </tr>
-                    <tr>
-                      <td class="py-1.5">1% – 20%</td>
-                      <td class="py-1.5">$780K</td>
-                      <td class="py-1.5 text-right text-emerald-400 font-semibold">+11.58%</td>
-                    </tr>
-                    <tr>
-                      <td class="py-1.5">21% – 30%</td>
-                      <td class="py-1.5">$100K</td>
-                      <td class="py-1.5 text-right text-red-400 font-semibold">-10.06%</td>
-                    </tr>
-                    <tr>
-                      <td class="py-1.5">31%+</td>
-                      <td class="py-1.5">$320K</td>
-                      <td class="py-1.5 text-right text-red-400 font-bold">-48.16%</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <!-- Interactive Dashboard Canvas Selector -->
-              <div>
-                <span class="text-xs font-semibold text-gray-300 block mb-2">Inspect Dashboard Canvas Pages:</span>
-                <div class="flex flex-wrap gap-2">
-                  <button onclick="switchSuperstoreTab('https://raw.githubusercontent.com/leodera/Superstore_Commercial_Audit/main/dashboard/executive_overview.png', this)" class="superstore-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 text-white shadow-md transition-all">
-                    1. Executive Overview
-                  </button>
-                  <button onclick="switchSuperstoreTab('https://raw.githubusercontent.com/leodera/Superstore_Commercial_Audit/main/dashboard/profit_and_loss.png', this)" class="superstore-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-dark-bg border border-dark-border text-gray-300 hover:text-white transition-all">
-                    2. Profit &amp; Loss
-                  </button>
-                  <button onclick="switchSuperstoreTab('https://raw.githubusercontent.com/leodera/Superstore_Commercial_Audit/main/dashboard/discount_impact.png', this)" class="superstore-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-dark-bg border border-dark-border text-gray-300 hover:text-white transition-all">
-                    3. Discount Impact
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right Column: Canvas Display Screen -->
-            <div class="lg:col-span-7 bg-dark-bg rounded-xl border border-dark-border p-2 overflow-hidden shadow-2xl relative">
-              <img id="superstoreCanvasDisplay" 
-                   src="https://raw.githubusercontent.com/leodera/Superstore_Commercial_Audit/main/dashboard/executive_overview.png" 
-                   alt="Superstore Power BI Dashboard Page" 
-                   class="w-full h-auto rounded-lg object-contain transition-all duration-300" />
-            </div>
-          </div>
+      <!-- Container where projects from projects.json render automatically -->
+      <div id="projectsContainer" class="space-y-12">
+        <div class="text-center py-12 text-gray-400 text-sm">
+          <i class="fa-solid fa-circle-notch fa-spin text-brand-400 text-xl block mb-3"></i>
+          <span>Loading project portfolio...</span>
         </div>
-
-        <!-- PROJECT 2: TABLEAU PUBLIC COHORT & CUSTOMER ANALYSIS -->
-        <div class="bg-dark-card border border-dark-border rounded-2xl overflow-hidden hover:border-indigo-500/60 transition-all shadow-2xl">
-          <div class="p-6 border-b border-dark-border bg-gradient-to-r from-blue-950/40 via-dark-card to-indigo-950/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <div class="flex items-center gap-2">
-                <span class="text-xs font-mono font-medium px-2.5 py-0.5 rounded bg-indigo-950 text-indigo-300 border border-indigo-800/40">Tableau Public &amp; Cohort Analysis</span>
-                <span class="text-xs text-gray-400">• Online Retail Intelligence</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mt-1">Online Retail Customer &amp; Cohort Retention Dynamics</h3>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <a href="https://github.com/leodera/online-retail-customer-analysis" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg bg-dark-bg border border-dark-border hover:border-gray-500 text-gray-300 hover:text-white transition-all">
-                <i class="fa-brands fa-github text-sm"></i> View Repository
-              </a>
-              <a href="https://public.tableau.com/views/Retail_Online_17921429781570/ExecutiveInsights?:language=en-GB&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition-all shadow-md shadow-indigo-600/30">
-                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Tableau Fullscreen
-              </a>
-            </div>
-          </div>
-
-          <div class="p-6 space-y-4">
-            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
-              Audited transaction histories to evaluate RFM customer segmentation, geographic market concentration (the UK driving ~82% of revenue), and customer retention behavior across multiple cohort cycles[cite: 9].
-            </p>
-
-            <!-- Embedded Live Tableau Container -->
-            <div class="w-full h-[750px] sm:h-[820px] bg-dark-bg rounded-xl border border-dark-border overflow-hidden shadow-2xl relative">
-              <iframe 
-                src="https://public.tableau.com/views/Retail_Online_17921429781570/ExecutiveInsights?:showVizHome=no&:embed=true&:tabs=yes" 
-                title="Online Retail Cohort Analysis Tableau Dashboard"
-                class="w-full h-full border-0" 
-                allowfullscreen>
-              </iframe>
-            </div>
-          </div>
-        </div>
-
       </div>
+
     </div>
   </section>
 
@@ -588,15 +464,165 @@
       });
     }
 
-    // Superstore Canvas Page Switcher
-    function switchSuperstoreTab(imagePath, clickedBtn) {
-      document.getElementById('superstoreCanvasDisplay').src = imagePath;
-      
-      document.querySelectorAll('.superstore-tab-btn').forEach(btn => {
-        btn.className = "superstore-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-dark-bg border border-dark-border text-gray-300 hover:text-white transition-all";
-      });
-      clickedBtn.className = "superstore-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 text-white shadow-md transition-all";
+    // Dynamic Project Loader from projects.json
+    async function loadPortfolioProjects() {
+      const container = document.getElementById('projectsContainer');
+      try {
+        const response = await fetch('projects.json');
+        if (!response.ok) throw new Error('Could not fetch projects.json');
+        const projects = await response.json();
+        
+        container.innerHTML = projects.map(p => {
+          let mediaHtml = '';
+
+          // 1. Power BI image gallery with canvas switcher
+          if (p.type === 'powerbi_gallery') {
+            const defaultImg = (p.gallery && p.gallery[0]) ? p.gallery[0].url : '';
+            const tabsHtml = (p.gallery || []).map((g, idx) => `
+              <button onclick="document.getElementById('display-${p.id}').src='${g.url}'; highlightGalleryTab(this, '${p.id}')" 
+                      class="gallery-tab-${p.id} px-3 py-1.5 rounded-lg text-xs font-semibold ${idx === 0 ? 'bg-amber-600 text-white shadow-md' : 'bg-dark-bg border border-dark-border text-gray-300 hover:text-white'} transition-all">
+                ${g.name}
+              </button>
+            `).join('');
+
+            let tableHtml = '';
+            if (p.table) {
+              const headersHtml = p.table.headers.map(h => `<th class="pb-1.5">${h}</th>`).join('');
+              const rowsHtml = p.table.rows.map(r => `
+                <tr>
+                  <td class="py-1.5">${r[0]}</td>
+                  <td class="py-1.5">${r[1]}</td>
+                  <td class="py-1.5 text-right ${r[3] || ''}">${r[2]}</td>
+                </tr>
+              `).join('');
+
+              tableHtml = `
+                <div class="rounded-xl border border-dark-border bg-dark-bg/60 p-3.5 overflow-x-auto mt-4">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">${p.table.title}</span>
+                    <span class="text-[10px] text-amber-400 font-medium">${p.table.threshold || ''}</span>
+                  </div>
+                  <table class="w-full text-left text-xs">
+                    <thead class="text-gray-400 border-b border-dark-border text-[11px]">
+                      <tr>${headersHtml}</tr>
+                    </thead>
+                    <tbody class="divide-y divide-dark-border/40 text-gray-300">
+                      ${rowsHtml}
+                    </tbody>
+                  </table>
+                </div>
+              `;
+            }
+
+            mediaHtml = `
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5 space-y-4">
+                  <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">${p.summary}</p>
+                  ${tableHtml}
+                  <div class="pt-2">
+                    <span class="text-xs font-semibold text-gray-300 block mb-2">Inspect Dashboard Canvas Pages:</span>
+                    <div class="flex flex-wrap gap-2">${tabsHtml}</div>
+                  </div>
+                </div>
+                <div class="lg:col-span-7 bg-dark-bg rounded-xl border border-dark-border p-2 overflow-hidden shadow-2xl">
+                  <img id="display-${p.id}" src="${defaultImg}" alt="${p.title}" class="w-full h-auto rounded-lg object-contain transition-all duration-300" />
+                </div>
+              </div>
+            `;
+          } 
+          
+          // 2. Interactive Tableau Public or iframe embed
+          else if (p.type === 'iframe') {
+            mediaHtml = `
+              <div class="space-y-4">
+                <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">${p.summary}</p>
+                <div class="w-full h-[750px] sm:h-[820px] bg-dark-bg rounded-xl border border-dark-border overflow-hidden shadow-2xl">
+                  <iframe src="${p.embedUrl}" title="${p.title}" class="w-full h-full border-0" allowfullscreen></iframe>
+                </div>
+              </div>
+            `;
+          }
+
+          // 3. Spreadsheet Data Cleaning comparison (Before & After)
+          else if (p.type === 'spreadsheet_comparison') {
+            mediaHtml = `
+              <div class="space-y-4">
+                <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">${p.summary}</p>
+                
+                <div class="flex items-center gap-2 pt-2">
+                  <span class="text-xs font-semibold text-gray-300">Data State:</span>
+                  <button onclick="toggleSheet('${p.id}', '${p.rawSheetEmbed}', this)" class="sheet-tab-${p.id} px-3 py-1.5 rounded-lg text-xs font-semibold bg-red-950 text-red-300 border border-red-800/40 transition-all">
+                    <i class="fa-solid fa-triangle-exclamation mr-1"></i> 1. Raw / Messy Data
+                  </button>
+                  <button onclick="toggleSheet('${p.id}', '${p.cleanedSheetEmbed}', this)" class="sheet-tab-${p.id} px-3 py-1.5 rounded-lg text-xs font-semibold bg-dark-bg border border-dark-border text-gray-400 hover:text-white transition-all">
+                    <i class="fa-solid fa-circle-check mr-1 text-emerald-400"></i> 2. Cleaned &amp; Standardized
+                  </button>
+                </div>
+
+                <div class="w-full h-[550px] bg-dark-bg rounded-xl border border-dark-border overflow-hidden shadow-2xl">
+                  <iframe id="sheetFrame-${p.id}" src="${p.rawSheetEmbed}" class="w-full h-full border-0" allowfullscreen></iframe>
+                </div>
+              </div>
+            `;
+          }
+
+          // Full Project Card Layout
+          const repoBtn = p.repoUrl ? `
+            <a href="${p.repoUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg bg-dark-bg border border-dark-border hover:border-brand-500 text-gray-300 hover:text-white transition-all">
+              <i class="fa-brands fa-github text-sm"></i> ${p.repoBtnText || 'View Repo'}
+            </a>
+          ` : '';
+
+          const extBtn = p.externalUrl ? `
+            <a href="${p.externalUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition-all shadow-md">
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> ${p.externalBtnText || 'Fullscreen'}
+            </a>
+          ` : '';
+
+          return `
+            <div class="bg-dark-card border border-dark-border rounded-2xl overflow-hidden hover:border-brand-500/60 transition-all shadow-2xl">
+              <div class="p-6 border-b border-dark-border bg-gradient-to-r from-blue-950/40 via-dark-card to-amber-950/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-xs font-mono font-medium px-2.5 py-0.5 rounded bg-brand-950 text-brand-300 border border-brand-800/40">${p.badge}</span>
+                    <span class="text-xs text-gray-400">• ${p.category}</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-white mt-1">${p.title}</h3>
+                </div>
+                <div class="flex items-center gap-3">
+                  ${repoBtn}
+                  ${extBtn}
+                </div>
+              </div>
+              <div class="p-6">${mediaHtml}</div>
+            </div>
+          `;
+        }).join('');
+
+      } catch (err) {
+        container.innerHTML = `<div class="p-8 text-center text-red-400 text-sm">Failed to load projects: ${err.message}. Check that projects.json is present in the root repository.</div>`;
+      }
     }
+
+    // Helper: gallery tabs
+    function highlightGalleryTab(btn, projectId) {
+      document.querySelectorAll('.gallery-tab-' + projectId).forEach(b => {
+        b.className = `gallery-tab-${projectId} px-3 py-1.5 rounded-lg text-xs font-semibold bg-dark-bg border border-dark-border text-gray-300 hover:text-white transition-all`;
+      });
+      btn.className = `gallery-tab-${projectId} px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 text-white shadow-md transition-all`;
+    }
+
+    // Helper: spreadsheet tabs
+    function toggleSheet(projectId, embedUrl, btn) {
+      document.getElementById('sheetFrame-' + projectId).src = embedUrl;
+      document.querySelectorAll('.sheet-tab-' + projectId).forEach(b => {
+        b.className = `sheet-tab-${projectId} px-3 py-1.5 rounded-lg text-xs font-semibold bg-dark-bg border border-dark-border text-gray-400 hover:text-white transition-all`;
+      });
+      btn.className = `sheet-tab-${projectId} px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-600 text-white shadow-md transition-all`;
+    }
+
+    // Initialize projects on load
+    window.addEventListener('DOMContentLoaded', loadPortfolioProjects);
   </script>
 </body>
 </html>

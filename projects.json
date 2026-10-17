@@ -1,0 +1,50 @@
+[
+  {
+    "id": "superstore-audit",
+    "title": "Superstore Commercial Audit & Loss Investigation",
+    "badge": "Power BI, Python & Google Sheets",
+    "category": "Commercial Performance Audit",
+    "summary": "Audited 9,994 retail transactions using a Python-to-Google Sheets pipeline and Power BI. Discovered that despite headline sales of $2.30M with a 12.47% net margin, $156.12K was lost across 1,318 orders due to excessive discounting.",
+    "repoUrl": "https://github.com/leodera/Superstore_Commercial_Audit",
+    "repoBtnText": "View Repo & Download .PBIX",
+    "type": "powerbi_gallery",
+    "table": {
+      "title": "Discount Cliff Margin Breakdown",
+      "threshold": "Loss Threshold: > 20%",
+      "headers": ["Discount Band", "Sales", "Profit Margin"],
+      "rows": [
+        ["0% (No Discount)", "$1.09M", "+29.51%", "text-emerald-400 font-semibold"],
+        ["1% – 20%", "$780K", "+11.58%", "text-emerald-400 font-semibold"],
+        ["21% – 30%", "$100K", "-10.06%", "text-red-400 font-semibold"],
+        ["31%+", "$320K", "-48.16%", "text-red-400 font-bold"]
+      ]
+    },
+    "gallery": [
+      {
+        "name": "1. Executive Overview",
+        "url": "https://raw.githubusercontent.com/leodera/Superstore_Commercial_Audit/main/dashboard/executive_overview.png"
+      },
+      {
+        "name": "2. Profit & Loss",
+        "url": "https://raw.githubusercontent.com/leodera/Superstore_Commercial_Audit/main/dashboard/profit_and_loss.png"
+      },
+      {
+        "name": "3. Discount Impact",
+        "url": "https://raw.githubusercontent.com/leodera/Superstore_Commercial_Audit/main/dashboard/discount_impact.png"
+      }
+    ]
+  },
+  {
+    "id": "tableau-retail-cohort",
+    "title": "Online Retail Customer & Cohort Retention Dynamics",
+    "badge": "Tableau Public & Cohort Analysis",
+    "category": "Online Retail Intelligence",
+    "summary": "Audited transaction histories to evaluate RFM customer segmentation, geographic market concentration (the UK driving ~82% of revenue), and customer retention behavior across multiple cohort cycles.",
+    "repoUrl": "https://github.com/leodera/online-retail-customer-analysis",
+    "repoBtnText": "View Repository",
+    "type": "iframe",
+    "externalUrl": "https://public.tableau.com/views/Retail_Online_17921429781570/ExecutiveInsights?:language=en-GB&:display_count=n&:origin=viz_share_link",
+    "externalBtnText": "Tableau Fullscreen",
+    "embedUrl": "https://public.tableau.com/views/Retail_Online_17921429781570/ExecutiveInsights?:showVizHome=no&:embed=true&:tabs=yes"
+  }
+]
