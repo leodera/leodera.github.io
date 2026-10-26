@@ -46,5 +46,18 @@
     "externalUrl": "https://public.tableau.com/views/Retail_Online_17921429781570/ExecutiveInsights?:language=en-GB&:display_count=n&:origin=viz_share_link",
     "externalBtnText": "Tableau Fullscreen",
     "embedUrl": "https://public.tableau.com/views/Retail_Online_17921429781570/ExecutiveInsights?:showVizHome=no&:embed=true&:tabs=yes"
+  },
+  {
+    "id": "olist-revenue-retention",
+    "title": "Olist E-Commerce Revenue & Retention Analytics",
+    "badge": "Python & Streamlit",
+    "category": "Customer & Financial Analytics",
+    "summary": "Built an interactive e-commerce analytics web application using Python and Streamlit to analyze revenue trends, repeat customer behavior, order fulfillment cycles, and cohort retention dynamics across 100k+ Brazilian retail orders.",
+    "repoUrl": "https://github.com/leodera/olist-revenue-retention",
+    "repoBtnText": "View Source Code",
+    "type": "iframe",
+    "externalUrl": "https://leodera-olist-revenue-retention-app-wb3ixw.streamlit.app/",
+    "externalBtnText": "Open Streamlit App",
+    "embedUrl": "https://leodera-olist-revenue-retention-app-wb3ixw.streamlit.app/?embed=true"
   }
 ]
