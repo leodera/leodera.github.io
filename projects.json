@@ -59,5 +59,18 @@
     "externalUrl": "https://leodera-olist-revenue-retention-app-wb3ixw.streamlit.app/",
     "externalBtnText": "Open Streamlit App",
     "embedUrl": "https://leodera-olist-revenue-retention-app-wb3ixw.streamlit.app/?embed=true"
+  },
+  {
+    "id": "olist-revenue-risk-audit",
+    "title": "Olist Revenue Concentration & Payment Risk Audit",
+    "badge": "Python & Dash",
+    "category": "Risk & Financial Analytics",
+    "summary": "Engineered an interactive analytics web application deployed on Render to investigate customer concentration, installment payment risk exposure, and seller fulfillment default patterns across Brazilian marketplace transactions.",
+    "repoUrl": "https://github.com/leodera/olist-revenue-concentration-payment-risk",
+    "repoBtnText": "View Source Code",
+    "type": "iframe",
+    "externalUrl": "https://olist-revenue-risk-audit.onrender.com/",
+    "externalBtnText": "Open Live App",
+    "embedUrl": "https://olist-revenue-risk-audit.onrender.com/"
   }
 ]
