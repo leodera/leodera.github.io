@@ -48,18 +48,18 @@
     "embedUrl": "https://public.tableau.com/views/Retail_Online_17921429781570/ExecutiveInsights?:showVizHome=no&:embed=true&:tabs=yes"
   },
   {
-    "id": "olist-revenue-retention",
-    "title": "Olist E-Commerce Revenue & Retention Analytics",
-    "badge": "Python & Streamlit",
-    "category": "Customer & Financial Analytics",
-    "summary": "Built an interactive e-commerce analytics web application using Python and Streamlit to analyze revenue trends, repeat customer behavior, order fulfillment cycles, and cohort retention dynamics across 100k+ Brazilian retail orders.",
-    "repoUrl": "https://github.com/leodera/olist-revenue-retention",
+   "id": "olist-retention-audit",
+   "title": "Olist Revenue Drivers & Customer Retention Audit",
+   "badge": "Python & Dash",
+   "category": "Retention Analytics",
+   "summary": "Engineered an interactive analytics web application deployed on Render to investigate customer retention and return rate",
+   "repoUrl": "https://github.com/leodera/olist-revenue-retention",
     "repoBtnText": "View Source Code",
-    "type": "iframe",
-    "externalUrl": "https://leodera-olist-revenue-retention-app-wb3ixw.streamlit.app/",
-    "externalBtnText": "Open Streamlit App",
-    "embedUrl": "https://leodera-olist-revenue-retention-app-wb3ixw.streamlit.app/?embed=true"
-  },
+   "type": "iframe",
+   "externalUrl": "https://olist-retention-audit.onrender.com/",
+   "externalBtnText": "Open Live App",
+   "embedUrl": "https://olist-retention-audit.onrender.com/"
+   },
   {
     "id": "olist-revenue-risk-audit",
     "title": "Olist Revenue Concentration & Payment Risk Audit",
