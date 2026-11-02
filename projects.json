@@ -72,5 +72,35 @@
     "externalUrl": "https://olist-revenue-risk-audit.onrender.com/",
     "externalBtnText": "Open Live App",
     "embedUrl": "https://olist-revenue-risk-audit.onrender.com/"
+  },
+  {
+    "id": "airbnb-nyc-cleaning-pipeline",
+    "title": "NYC Airbnb Data Cleaning & Transformation Pipeline",
+    "badge": "Python, Pandas & Regex",
+    "category": "Automated Data Pipeline & Quality Audit",
+    "summary": "Architected an automated Python data-cleansing pipeline using Pandas to standardize messy transactional listings. Handled irregular currency symbols, missing review dates, neighbourhood typos, and duplicate records with automated audit logging.",
+    "repoUrl": "https://github.com/leodera/airbnb-nyc-data-cleaning",
+    "repoBtnText": "View Pipeline on GitHub",
+    "type": "data_preview_comparison",
+    "raw_preview": {
+      "headers": ["id", "name", "neighbourhood_group", "price", "minimum_nights", "last_review"],
+      "rows": [
+        ["2539", "Clean & quiet apt", "brookln", "$149.00", "-1", "10/19/2018"],
+        ["2595", "Skylit Midtown Castle", "Manhattan", "$225", "1", "null"],
+        ["3831", "Cozy Entire Floor", "Bklyn", "NaN", "1", "2019/07/05"],
+        ["5022", "Entire Apt: Spacious", "MANHATTAN", "$80.00", "0", "null"],
+        ["5099", "Large Studio in Murray Hill", "manhattan", "$200.00", "3", "2019-06-22"]
+      ]
+    },
+    "cleaned_preview": {
+      "headers": ["id", "name", "neighbourhood_group", "price", "minimum_nights", "last_review"],
+      "rows": [
+        ["2539", "Clean & Quiet Apt", "Brooklyn", "149.0", "1", "2018-10-19"],
+        ["2595", "Skylit Midtown Castle", "Manhattan", "225.0", "1", "2019-01-01"],
+        ["3831", "Cozy Entire Floor", "Brooklyn", "152.0", "1", "2019-07-05"],
+        ["5022", "Entire Apt: Spacious", "Manhattan", "80.0", "1", "2019-01-01"],
+        ["5099", "Large Studio in Murray Hill", "Manhattan", "200.0", "3", "2019-06-22"]
+      ]
+    }
   }
 ]
