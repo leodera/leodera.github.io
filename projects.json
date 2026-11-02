@@ -82,21 +82,7 @@
     "repoUrl": "https://github.com/leodera/airbnb-nyc-data-cleaning",
     "repoBtnText": "View Pipeline on GitHub",
     "type": "data_preview_comparison",
-    "raw_preview": {
-      "headers": ["id", "name", "neighbourhood_group", "price", "minimum_nights", "last_review"],
-      "rows": [
-        ["2539", "Clean & quiet apt", "brookln", "$149.00", "-1", "10/19/2018"],
-        ["2595", "Skylit Midtown Castle", "Manhattan", "$225", "1", null]
-        /* ... up to 1,000 rows ... */
-      ]
-    },
-    "cleaned_preview": {
-      "headers": ["id", "name", "neighbourhood_group", "price", "minimum_nights", "last_review"],
-      "rows": [
-        ["2539", "Clean & Quiet Apt", "Brooklyn", "149.0", "1", "2018-10-19"],
-        ["2595", "Skylit Midtown Castle", "Manhattan", "225.0", "1", "2019-01-01"]
-        /* ... up to 1,000 rows ... */
-      ]
-    }
+    "dataFile": "airbnb_sample.json"
   }
 ]
+

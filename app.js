@@ -127,21 +127,8 @@ async function loadPortfolioProjects() {
         `;
       }
 
-      // 4. Large Dataset Preview Comparison (Supports 1000+ rows with pagination & search)
+      // 4. Large Dataset Preview Comparison (External File or Inlined JSON)
       else if (p.type === 'data_preview_comparison') {
-        // Initialize state for pagination
-        previewState[p.id] = {
-          currentTab: 'raw',
-          page: 1,
-          pageSize: 25,
-          searchQuery: '',
-          raw: p.raw_preview,
-          cleaned: p.cleaned_preview
-        };
-
-        const totalRaw = p.raw_preview.rows.length;
-        const totalCleaned = p.cleaned_preview.rows.length;
-
         mediaHtml = `
           <div class="space-y-4">
             <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">${p.summary}</p>
@@ -150,10 +137,10 @@ async function loadPortfolioProjects() {
               <div class="flex items-center gap-2">
                 <span class="text-xs font-semibold text-gray-400">Stage:</span>
                 <button onclick="switchDatasetView('${p.id}', 'raw', this)" class="data-tab-btn-${p.id} px-3 py-1.5 rounded-lg text-xs font-semibold bg-red-950 text-red-300 border border-red-800/50 shadow-sm transition-all">
-                  <i class="fa-solid fa-triangle-exclamation mr-1.5"></i> Raw Data (${totalRaw.toLocaleString()} rows)
+                  <i class="fa-solid fa-triangle-exclamation mr-1.5"></i> Raw Data
                 </button>
                 <button onclick="switchDatasetView('${p.id}', 'cleaned', this)" class="data-tab-btn-${p.id} px-3 py-1.5 rounded-lg text-xs font-semibold bg-dark-bg border border-dark-border text-gray-400 hover:text-white transition-all">
-                  <i class="fa-solid fa-circle-check mr-1.5 text-emerald-400"></i> Cleaned Pipeline Output (${totalCleaned.toLocaleString()} rows)
+                  <i class="fa-solid fa-circle-check mr-1.5 text-emerald-400"></i> Cleaned Pipeline Output
                 </button>
               </div>
 
@@ -178,24 +165,22 @@ async function loadPortfolioProjects() {
             <div id="table-wrapper-${p.id}" class="rounded-xl border border-dark-border bg-dark-bg/90 overflow-hidden shadow-2xl">
               <div class="overflow-x-auto max-h-[500px]">
                 <table class="w-full text-left font-mono text-xs border-collapse">
-                  <thead id="table-head-${p.id}" class="sticky top-0 z-10 border-b border-dark-border bg-dark-card text-[11px] text-gray-300 shadow-md">
-                    <!-- Dynamic Headers Render Here -->
-                  </thead>
+                  <thead id="table-head-${p.id}" class="sticky top-0 z-10 border-b border-dark-border bg-dark-card text-[11px] text-gray-300 shadow-md"></thead>
                   <tbody id="table-body-${p.id}" class="divide-y divide-dark-border/40 text-gray-300">
-                    <!-- Dynamic Rows Render Here -->
+                    <tr><td class="text-center py-8 text-gray-400"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Loading dataset records...</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <!-- Pagination Toolbar -->
               <div class="p-3 border-t border-dark-border bg-dark-card/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-gray-400">
-                <span id="page-info-${p.id}">Showing rows 1 to 25</span>
+                <span id="page-info-${p.id}">Loading rows...</span>
                 <div class="flex items-center gap-1.5">
-                  <button onclick="navigateDatasetPage('${p.id}', 'prev')" class="px-3 py-1 rounded bg-dark-bg border border-dark-border text-gray-300 hover:text-white hover:border-gray-500 transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+                  <button onclick="navigateDatasetPage('${p.id}', 'prev')" class="px-3 py-1 rounded bg-dark-bg border border-dark-border text-gray-300 hover:text-white hover:border-gray-500 transition-all">
                     <i class="fa-solid fa-chevron-left text-[10px]"></i> Prev
                   </button>
                   <span id="page-counter-${p.id}" class="px-2 font-mono text-gray-300">Page 1</span>
-                  <button onclick="navigateDatasetPage('${p.id}', 'next')" class="px-3 py-1 rounded bg-dark-bg border border-dark-border text-gray-300 hover:text-white hover:border-gray-500 transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+                  <button onclick="navigateDatasetPage('${p.id}', 'next')" class="px-3 py-1 rounded bg-dark-bg border border-dark-border text-gray-300 hover:text-white transition-all">
                     Next <i class="fa-solid fa-chevron-right text-[10px]"></i>
                   </button>
                 </div>
@@ -203,6 +188,42 @@ async function loadPortfolioProjects() {
             </div>
           </div>
         `;
+
+        // If dataFile is specified, fetch asynchronously; otherwise use inlined raw_preview/cleaned_preview
+        if (p.dataFile) {
+          fetch(p.dataFile + '?v=' + Date.now())
+            .then(res => {
+              if (!res.ok) throw new Error('Could not find ' + p.dataFile);
+              return res.json();
+            })
+            .then(data => {
+              previewState[p.id] = {
+                currentTab: 'raw',
+                page: 1,
+                pageSize: 25,
+                searchQuery: '',
+                raw: data.raw,
+                cleaned: data.cleaned
+              };
+              renderDatasetTable(p.id);
+            })
+            .catch(err => {
+              const tbody = document.getElementById(`table-body-${p.id}`);
+              if (tbody) {
+                tbody.innerHTML = `<tr><td class="text-center py-6 text-red-400 text-xs">Error loading ${p.dataFile}: ${err.message}</td></tr>`;
+              }
+            });
+        } else if (p.raw_preview && p.cleaned_preview) {
+          previewState[p.id] = {
+            currentTab: 'raw',
+            page: 1,
+            pageSize: 25,
+            searchQuery: '',
+            raw: p.raw_preview,
+            cleaned: p.cleaned_preview
+          };
+          setTimeout(() => renderDatasetTable(p.id), 0);
+        }
       }
 
       // Full Project Card Layout
@@ -238,13 +259,6 @@ async function loadPortfolioProjects() {
       `;
     }).join('');
 
-    // Trigger initial table rendering for any data_preview_comparison cards
-    projects.forEach(p => {
-      if (p.type === 'data_preview_comparison') {
-        renderDatasetTable(p.id);
-      }
-    });
-
   } catch (err) {
     container.innerHTML = `<div class="p-8 text-center text-red-400 text-sm">Failed to load projects: ${err.message}. Check that projects.json is present in the root repository.</div>`;
   }
@@ -257,7 +271,7 @@ function renderDatasetTable(projectId) {
   if (!state) return;
 
   const activeDataset = state.currentTab === 'raw' ? state.raw : state.cleaned;
-  if (!activeDataset) return;
+  if (!activeDataset || !activeDataset.rows) return;
 
   // Header Rendering
   const thead = document.getElementById(`table-head-${projectId}`);
@@ -279,7 +293,7 @@ function renderDatasetTable(projectId) {
     );
   }
 
-  // Pagination Slice
+  // Pagination Calculations
   const totalRows = filteredRows.length;
   const totalPages = Math.max(1, Math.ceil(totalRows / state.pageSize));
   if (state.page > totalPages) state.page = totalPages;
@@ -298,7 +312,7 @@ function renderDatasetTable(projectId) {
       tbody.innerHTML = rowsToDisplay.map((row, idx) => `
         <tr class="hover:bg-brand-950/20 transition-colors">
           <td class="px-3 py-1.5 text-center text-gray-500 text-[10px] select-none">${startIdx + idx + 1}</td>
-          ${row.map(cell => `<td class="px-3 py-1.5 whitespace-nowrap">${cell !== null && cell !== undefined ? cell : '<span class="text-gray-600">null</span>'}</td>`).join('')}
+          ${row.map(cell => `<td class="px-3 py-1.5 whitespace-nowrap">${cell !== null && cell !== undefined && cell !== '' ? cell : '<span class="text-gray-600">null</span>'}</td>`).join('')}
         </tr>
       `).join('');
     }
@@ -320,7 +334,7 @@ function switchDatasetView(projectId, viewType, btn) {
   if (!state) return;
 
   state.currentTab = viewType;
-  state.page = 1; // reset to page 1
+  state.page = 1;
 
   document.querySelectorAll(`.data-tab-btn-${projectId}`).forEach(b => {
     b.className = `data-tab-btn-${projectId} px-3 py-1.5 rounded-lg text-xs font-semibold bg-dark-bg border border-dark-border text-gray-400 hover:text-white transition-all`;
